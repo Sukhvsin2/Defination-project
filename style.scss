@@ -1,79 +1,104 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+
+* {
     margin: 0;
+    font-family: 'Akaya Telivigala', cursive;
 }
 
-.members{
+.heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    background-color: #fab1a0;
+    color: #f1f2f6;
+    font-size: 2rem;
+}
+
+.members {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
     gap: 0.5rem;
     padding: 10px;
 }
 
-.cards{
+.cards {
     position: relative;
 
-    &:hover{
-        .content{
+    &:hover {
+        .content {
             display: block;
             animation: fade 1s;
         }
-        .names{
+
+        .names {
             display: none;
             animation: fade 1s;
         }
     }
 
-    .names{
+    .names {
         position: absolute;
         top: 50%;
-        left: 50%; 
+        left: 50%;
         bottom: 50%;
         transform: translateX(-50%);
         color: #f1f2f6;
         animation: fade 1s;
     }
 
-    .content{
+    .content {
         display: none;
         position: absolute;
-        top: 50%;
-        left: 50%; 
-        bottom: 50%;
+        top: 0;
+        left: 50%;
         transform: translateX(-50%);
         color: #f1f2f6;
         animation: fade 1s;
+        font-family: 'Dancing Script', cursive;
     }
 
-    .img{
+    .img {
         width: 100%;
         object-fit: cover;
         background-color: #f1f2f6;
         filter: brightness(50%) blur(0.9px);
         animation: hideAnimation 0.5s ease;
 
-        &:hover{
+        &:hover {
             filter: brightness(90%);
             animation: showAnimation 0.5s ease;
         }
+
         @keyframes showAnimation {
-            0%{
+            0% {
                 filter: brightness(50%) blur(1.5px);
             }
-            100%{
-                filter: brightness(90%) blur(0px);
+
+            100% {
+                filter: blur(0px);
             }
         }
+
         @keyframes hideAnimation {
-            0%{
-                filter: brightness(90%) blur(0px);
+            0% {
+                filter: blur(0px);
             }
-            100%{
+
+            100% {
                 filter: brightness(50%) blur(1.5px);
             }
         }
     }
+
     @keyframes fade {
-        0% {opacity: 0;}
-        100% {opacity: 1;}
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
     }
 }
